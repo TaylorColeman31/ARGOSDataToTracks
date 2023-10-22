@@ -9,3 +9,8 @@
 ## Created: Fall 2023
 ## Author: taylor.s.coleman@duke.edu (for ENV859)
 ##---------------------------------------------------------------------
+
+# Import modules
+import sys, os, arcpy
+
+
