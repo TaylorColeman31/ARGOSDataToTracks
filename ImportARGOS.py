@@ -24,7 +24,7 @@ inputFileObj = open(inputFile,'r')
 # Get the first line of data, so we can use a while loop
 lineString = inputFileObj.readline()
 
-# Start the while loop
+# Start the while loop - better than "for" loop for running through each line
 while lineString:
     
     # Set code to run only if the line contains the string "Date: "
@@ -42,7 +42,7 @@ while lineString:
         # Extract location info from the next line
         line2String = inputFileObj.readline()
         
-        # Parse the line into a list
+        # Parse the second line into a list 
         line2Data = line2String.split()
         
         # Extract the XY coordinates we need to variables
