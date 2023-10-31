@@ -26,6 +26,11 @@ outputSR = arcpy.SpatialReference(54002)
 outPath,outName = os.path.split(outputFC) #Splits outputFC into 2 items (path and file)
 arcpy.CreateFeatureclass_management(outPath, outName, "POINT","","","", outputSR)
 
+# Add TagID, LC, and Date fields to the output feature class
+arcpy.AddField_management(outputFC,"TagID","LONG")
+arcpy.AddField_management(outputFC,"LC","TEXT")
+arcpy.AddField_management(outputFC,"Date","DATE")
+
 # Construct a while loop and iterate through all lines in the data file
 # Open the ARGOS data file
 inputFileObj = open(inputFile,'r')
@@ -33,7 +38,7 @@ inputFileObj = open(inputFile,'r')
 # Get the first line of data, so we can use the while loop
 lineString = inputFileObj.readline()
 
-#Start the while loop
+# Start the while loop
 while lineString:
     
     # Set code to run only if the line contains the string "Date: "
